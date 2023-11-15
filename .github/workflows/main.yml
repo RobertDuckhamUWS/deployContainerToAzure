@@ -28,13 +28,3 @@ jobs:
       uses: azure/login@v1
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
-
-    - name: Set Azure Web App details
-      run: |
-        az webapp name set --name dockerDeployTest --resource-group dockerDeployTest
-        az configure --defaults web=dockerDeployTest
-
-    - name: Deploy to Azure Web App
-      run: |
-        az webapp config container set --docker-custom-image-name node-hello-world:latest
-        az webapp config appsettings set --settings WEBSITES_PORT=3000
