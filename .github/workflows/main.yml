@@ -35,5 +35,11 @@ jobs:
             registry-password: ${{ secrets.REGISTRY_PASSWORD }}
             name: node-hello-world
             location: 'uk south'
+    start-app-service:
+        runs-on: ubuntu-latest
+        steps:
+        - name: 'terraform init'
+        - run: |
+            terraform init
         
         
