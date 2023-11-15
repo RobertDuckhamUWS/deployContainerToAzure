@@ -35,4 +35,8 @@ jobs:
             registry-password: ${{ secrets.REGISTRY_PASSWORD }}
             name: node-hello-world
             location: 'uk south'
+        - name: 'Terraform App Service'
+        - run: |
+            terraform init
+            terraform validate
         
