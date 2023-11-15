@@ -4,7 +4,6 @@ provider "azurerm" {
 
 data "azurerm_resource_group" "docker-deploy-test-rg"{
   name = "dockerDeployTest"
-  location = "uk south"
 }
 
 resource "azurerm_service_plan" "docker-deploy-test-service-plan" {
