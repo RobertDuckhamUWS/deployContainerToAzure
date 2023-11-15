@@ -28,3 +28,10 @@ jobs:
       uses: azure/login@v1
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
+    
+    - name: Add to Azure Container Registry
+      run: |
+        az acr login --name dockerdeploytestacr
+        docker build -t dockerdeploytestacr.azure.io/node-hello-world:latest .
+        docker push dockerdeploytestacr.azure.io/node-hello-world:latest
+        
